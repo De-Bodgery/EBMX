@@ -1,0 +1,667 @@
+/*
+ Copyright 2016 Benjamin Vedder	benjamin@vedder.se
+
+ This file is part of the VESC firmware.
+
+ The VESC firmware is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ The VESC firmware is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#ifndef APPCONF_DEFAULT_H_
+#define APPCONF_DEFAULT_H_
+
+// Default app configuration
+#ifndef APPCONF_CONTROLLER_ID
+#define APPCONF_CONTROLLER_ID				-1 // Controller id. -1 means it should be calculated from UUID.
+#endif
+#ifndef APPCONF_TIMEOUT_MSEC
+#define APPCONF_TIMEOUT_MSEC				1000
+#endif
+#ifndef APPCONF_TIMEOUT_BRAKE_CURRENT
+#define APPCONF_TIMEOUT_BRAKE_CURRENT		0.0
+#endif
+#ifndef APPCONF_SEND_CAN_STATUS
+#define APPCONF_SEND_CAN_STATUS				1 //regen function as regen
+#endif
+#ifndef APPCONF_CAN_MODE
+#define APPCONF_CAN_MODE					CAN_MODE_VESC
+#endif
+#ifndef APPCONF_UAVCAN_ESC_INDEX
+#define APPCONF_UAVCAN_ESC_INDEX			0
+#endif
+#ifndef APPCONF_UAVCAN_RAW_MODE
+#define APPCONF_UAVCAN_RAW_MODE				UAVCAN_RAW_MODE_CURRENT
+#endif
+#ifndef APPCONF_UAVCAN_RAW_RPM_MAX
+#define APPCONF_UAVCAN_RAW_RPM_MAX			50000.0
+#endif
+#ifndef APPCONF_SERVO_OUT_ENABLE
+#define APPCONF_SERVO_OUT_ENABLE			false
+#endif
+#ifndef APPCONF_KILL_SW_MODE
+#define APPCONF_KILL_SW_MODE				KILL_SW_MODE_DISABLED
+#endif
+#ifndef APPCONF_SEND_CAN_STATUS_RATE_HZ
+#define APPCONF_SEND_CAN_STATUS_RATE_HZ		50
+#endif
+
+#ifndef APPCONF_PAIRING_DONE
+#define APPCONF_PAIRING_DONE				false
+#endif
+#ifndef APPCONF_PERMANENT_UART_ENABLED
+#define APPCONF_PERMANENT_UART_ENABLED		false //default switch off
+#endif
+
+// The default app is UART in case the UART port is used for
+// firmware updates.
+#ifndef APPCONF_APP_TO_USE
+#define APPCONF_APP_TO_USE					APP_UART
+#endif
+
+// PPM app configureation
+#ifndef APPCONF_PPM_CTRL_TYPE
+#define APPCONF_PPM_CTRL_TYPE				0 //12v 2
+#endif
+#ifndef APPCONF_PPM_PID_MAX_ERPM
+#define APPCONF_PPM_PID_MAX_ERPM			15000
+#endif
+#ifndef APPCONF_CAN_BAUD_RATE //Bike type
+#define APPCONF_CAN_BAUD_RATE				CAN_SURRON
+#endif
+#ifndef TAPPCONF_CAN_BAUD_RATE //Bike type
+#define TAPPCONF_CAN_BAUD_RATE				CAN_TALARIA
+#endif
+#ifndef APPCONF_SHUTDOWN_MODE  //sprocket size
+#define APPCONF_SHUTDOWN_MODE				1
+#endif
+
+#ifndef SURRON_NONBYPASSED_BATTERY_KW
+#define SURRON_NONBYPASSED_BATTERY_KW	6
+#endif
+#ifndef SURRON_NONBYPASSED_BATTERY_BA
+#define SURRON_NONBYPASSED_BATTERY_BA	125
+#endif
+
+#ifndef SURRON_BYPASSED_BATTERY_KW
+#define SURRON_BYPASSED_BATTERY_KW	8
+#endif
+
+#ifndef SURRON_BYPASSED_BATTERY_BA
+#define SURRON_BYPASSED_BATTERY_BA	135
+#endif
+
+#ifndef TALARIA_NONBYPASSED_BATTERY_KW
+#define TALARIA_NONBYPASSED_BATTERY_KW	7.5
+#endif
+
+#ifndef TALARIA_NONBYPASSED_BATTERY_BA
+#define TALARIA_NONBYPASSED_BATTERY_BA	135
+#endif
+
+#ifndef TALARIA_BYPASSED_BATTERY_KW
+#define TALARIA_BYPASSED_BATTERY_KW	9.5
+#endif
+
+#ifndef TALARIA_BYPASSED_BATTERY_BA
+#define TALARIA_BYPASSED_BATTERY_BA	155
+#endif
+
+#ifndef EBMX_16S_BATTERY_KW
+#define EBMX_16S_BATTERY_KW	18
+#endif
+
+#ifndef EBMX_16S_BATTERY_BA
+#define EBMX_16S_BATTERY_BA	240
+#endif
+
+#ifndef EBMX_20S_BATTERY_KW
+#define EBMX_20S_BATTERY_KW	20
+#endif
+
+#ifndef EBMX_20S_BATTERY_BA
+#define EBMX_20S_BATTERY_BA	240
+#endif
+
+#ifndef EBMX_22S_BATTERY_HP_KW
+#define EBMX_22S_BATTERY_HP_KW	30
+#endif
+
+#ifndef EBMX_22S_BATTERY_HP_BA
+#define EBMX_22S_BATTERY_HP_BA	400
+#endif
+
+#ifndef APPCONF_BALANCE_BOOSTER_CURRENT
+#define APPCONF_BALANCE_BOOSTER_CURRENT				55  //FW current percentage of 150A
+#endif
+
+#ifndef APPCONF_IMU_ACCEL_CONFIDENCE_DECAY
+#define APPCONF_IMU_ACCEL_CONFIDENCE_DECAY	5 //street motor power 1
+#endif
+#ifndef APPCONF_IMU_MAHONY_KP
+#define APPCONF_IMU_MAHONY_KP				150 //street motor current 1
+#endif
+#ifndef APPCONF_IMU_ROT_ROLL
+#define APPCONF_IMU_ROT_ROLL				8 //street motor power 2
+#endif
+#ifndef APPCONF_IMU_ROT_PITCH
+#define APPCONF_IMU_ROT_PITCH				250 //street motor current 2
+#endif
+#ifndef APPCONF_PPM_TC_MAX_DIFF
+#define APPCONF_PPM_TC_MAX_DIFF				12 //street motor power 3
+#endif
+#ifndef APPCONF_PPM_HYST
+#define APPCONF_PPM_HYST					350 //street motor current 3
+#endif
+
+#ifndef APPCONF_CHUK_RAMP_TIME_POS
+#define APPCONF_CHUK_RAMP_TIME_POS			10 //race motor power 1
+#endif
+#ifndef APPCONF_CHUK_RAMP_TIME_NEG
+#define APPCONF_CHUK_RAMP_TIME_NEG			400 //race motor current 1
+#endif
+
+#ifndef APPCONF_CHUK_SMART_REV_MAX_DUTY
+#define APPCONF_CHUK_SMART_REV_MAX_DUTY		12 //race motor power 2
+#endif
+#ifndef APPCONF_CHUK_SMART_REV_RAMP_TIME
+#define APPCONF_CHUK_SMART_REV_RAMP_TIME	500 //race motor current 2
+#endif
+
+#ifndef APPCONF_BALANCE_YAW_CURRENT_CLAMP
+#define APPCONF_BALANCE_YAW_CURRENT_CLAMP 			600  //race motor current 3
+#endif
+
+#ifndef APPCONF_BALANCE_ROLL_STEER_ERPM_KP
+#define APPCONF_BALANCE_ROLL_STEER_ERPM_KP 			15  //Race mode motor power 3
+#endif
+
+#ifndef APPCONF_BALANCE_TORQUETILT_ANGLE_LIMIT
+#define APPCONF_BALANCE_TORQUETILT_ANGLE_LIMIT		150 //street battery current
+#endif
+#ifndef APPCONF_BALANCE_TORQUETILT_ON_SPEED
+#define APPCONF_BALANCE_TORQUETILT_ON_SPEED			225 //race battery current
+#endif
+
+#ifndef APPCONF_PPM_PULSE_START
+#define APPCONF_PPM_PULSE_START				45 //street speed limit km
+#endif
+#ifndef APPCONF_PPM_PULSE_END
+#define APPCONF_PPM_PULSE_END				200 //race speed limit km
+#endif
+
+#ifndef APPCONF_BALANCE_FAULT_ADC1
+#define APPCONF_BALANCE_FAULT_ADC1  				50 //street regen strength motor currnet % of 200A
+#endif
+#ifndef APPCONF_BALANCE_FAULT_ADC2
+#define APPCONF_BALANCE_FAULT_ADC2  				80//race regen strength motor currnet % of 200A
+#endif
+
+#ifndef APPCONF_PAS_RAMP_TIME_POS
+#define APPCONF_PAS_RAMP_TIME_POS			20 //street reverse strength
+#endif
+#ifndef APPCONF_PAS_RAMP_TIME_NEG
+#define APPCONF_PAS_RAMP_TIME_NEG			50 //race reverse strength
+#endif
+
+#ifndef APPCONF_PPM_MEDIAN_FILTER
+#define APPCONF_PPM_MEDIAN_FILTER			0//rs lock on display
+#endif
+
+#ifndef APPCONF_PPM_THROTTLE_EXP_MODE
+#define APPCONF_PPM_THROTTLE_EXP_MODE		0 //12v 3
+#endif
+
+#ifndef APPCONF_CHUK_CTRL_TYPE
+#define APPCONF_CHUK_CTRL_TYPE				1  //battery series 0 is 16s 1 is 20s 2 is 22s 3 is 24s 4 is bypass
+#endif
+
+#ifndef APPCONF_CHUK_MULTI_ESC
+#define APPCONF_CHUK_MULTI_ESC				false   //slow voltage cutout
+#endif
+// IMU
+#ifndef APPCONF_IMU_TYPE
+#define APPCONF_IMU_TYPE					0 //always on 12v
+#endif
+
+#ifndef APPCONF_PAS_CTRL_TYPE
+#define APPCONF_PAS_CTRL_TYPE				0 //temperature units 0 is c
+#endif
+#ifndef APPCONF_PAS_SENSOR_TYPE
+#define APPCONF_PAS_SENSOR_TYPE				1//default 0 is street mode
+#endif
+#ifndef APPCONF_PAS_INVERT_PEDAL_DIRECTION
+#define APPCONF_PAS_INVERT_PEDAL_DIRECTION	0 //c
+#endif
+#ifndef APPCONF_BALANCE_KD_PT1_HIGHPASS_FREQUENCY
+#define APPCONF_BALANCE_KD_PT1_HIGHPASS_FREQUENCY	15//ACCELERATION TEMPEATURE DECREASE
+#endif
+
+#ifndef APPCONF_BALANCE_TORQUETILT_FILTER
+#define APPCONF_BALANCE_TORQUETILT_FILTER			48  //16s min
+#endif
+#ifndef APPCONF_BALANCE_TURNTILT_STRENGTH
+#define APPCONF_BALANCE_TURNTILT_STRENGTH			67.52    //16s max
+#endif
+#ifndef APPCONF_BALANCE_TURNTILT_ANGLE_LIMIT
+#define APPCONF_BALANCE_TURNTILT_ANGLE_LIMIT 		60    //20s min
+#endif
+#ifndef APPCONF_BALANCE_TURNTILT_START_ANGLE
+#define APPCONF_BALANCE_TURNTILT_START_ANGLE		84.4    //20s max
+#endif
+
+#ifndef APPCONF_BALANCE_TORQUETILT_OFF_SPEED
+#define APPCONF_BALANCE_TORQUETILT_OFF_SPEED		66   //22s min
+#endif
+#ifndef APPCONF_BALANCE_TORQUETILT_STRENGTH
+#define APPCONF_BALANCE_TORQUETILT_STRENGTH			92.84  //22s max
+#endif
+
+#ifndef APPCONF_BALANCE_BOOSTER_ANGLE
+#define APPCONF_BALANCE_BOOSTER_ANGLE				72 //24s min
+#endif
+#ifndef APPCONF_BALANCE_BOOSTER_RAMP
+#define APPCONF_BALANCE_BOOSTER_RAMP				92.84 //24 max
+#endif
+
+#ifndef APPCONF_NRF_POWER
+#define APPCONF_NRF_POWER					0//Mode Afrter Reboot
+#endif
+#ifndef APPCONF_NRF_CRC
+#define APPCONF_NRF_CRC						0//12v 4
+#endif
+
+#ifndef APPCONF_BALANCE_STARTUP_ROLL_TOLERANCE
+#define APPCONF_BALANCE_STARTUP_ROLL_TOLERANCE		 595   //whell diameter mm
+#endif
+#ifndef APPCONF_BALANCE_STARTUP_SPEED
+#define APPCONF_BALANCE_STARTUP_SPEED 				5  //Gear ratio
+#endif
+#ifndef APPCONF_NRF_SEND_CRC_ACK
+#define APPCONF_NRF_SEND_CRC_ACK			false  //brake sensor enable
+#endif
+#ifndef APPCONF_ADC_REV_BUTTON_INVERTED
+#define APPCONF_ADC_REV_BUTTON_INVERTED		5 //battery model
+#endif
+#ifndef APPCONF_NRF_RETR_DELAY
+#define APPCONF_NRF_RETR_DELAY				0 //tilt sensor
+#endif
+#ifndef APPCONF_CHUK_THROTTLE_EXP_MODE
+#define APPCONF_CHUK_THROTTLE_EXP_MODE		0//stand sensor
+#endif
+#ifndef APPCONF_BALANCE_MULTI_ESC
+#define APPCONF_BALANCE_MULTI_ESC  		    false  //12v 0 output
+#endif
+
+#ifndef APPCONF_PAS_UPDATE_RATE_HZ
+#define APPCONF_PAS_UPDATE_RATE_HZ			80 //Target coolant motor temperature
+#endif
+
+#ifndef APPCONF_BALANCE_ROLL_STEER_KP
+#define APPCONF_BALANCE_ROLL_STEER_KP 				15
+#endif
+
+#ifndef APPCONF_PPM_PULSE_CENTER
+#define APPCONF_PPM_PULSE_CENTER			1.5
+#endif
+
+#ifndef APPCONF_PPM_SAFE_START
+#define APPCONF_PPM_SAFE_START				true
+#endif
+#ifndef APPCONF_PPM_THROTTLE_EXP
+#define APPCONF_PPM_THROTTLE_EXP			0.0
+#endif
+#ifndef APPCONF_PPM_THROTTLE_EXP_BRAKE
+#define APPCONF_PPM_THROTTLE_EXP_BRAKE		0.0
+#endif
+
+#ifndef APPCONF_PPM_RAMP_TIME_POS
+#define APPCONF_PPM_RAMP_TIME_POS			0.4
+#endif
+#ifndef APPCONF_PPM_RAMP_TIME_NEG
+#define APPCONF_PPM_RAMP_TIME_NEG			0.2
+#endif
+#ifndef APPCONF_PPM_MULTI_ESC
+#define APPCONF_PPM_MULTI_ESC				true
+#endif
+#ifndef APPCONF_PPM_TC
+#define APPCONF_PPM_TC						false
+#endif
+
+#ifndef APPCONF_PPM_MAX_ERPM_FOR_DIR
+#define APPCONF_PPM_MAX_ERPM_FOR_DIR		4000.0
+#endif
+#ifndef APPCONF_PPM_SMART_REV_MAX_DUTY
+#define APPCONF_PPM_SMART_REV_MAX_DUTY		0.07
+#endif
+#ifndef APPCONF_PPM_SMART_REV_RAMP_TIME
+#define APPCONF_PPM_SMART_REV_RAMP_TIME		3.0
+#endif
+
+// ADC app configureation
+#ifndef APPCONF_ADC_CTRL_TYPE
+#define APPCONF_ADC_CTRL_TYPE				ADC_CTRL_TYPE_CURRENT_THROTTLE
+#endif
+#ifndef APPCONF_ADC_HYST
+#define APPCONF_ADC_HYST					0.03
+#endif
+#ifndef APPCONF_ADC_VOLTAGE_START
+#define APPCONF_ADC_VOLTAGE_START			0.9
+#endif
+#ifndef APPCONF_ADC_VOLTAGE_END
+#define APPCONF_ADC_VOLTAGE_END				4.1
+#endif
+#ifndef APPCONF_ADC_VOLTAGE_CENTER   // Off throttle regen strength
+#define APPCONF_ADC_VOLTAGE_CENTER			40
+#endif
+#ifndef APPCONF_ADC_VOLTAGE2_START
+#define APPCONF_ADC_VOLTAGE2_START			0.9
+#endif
+#ifndef APPCONF_ADC_VOLTAGE2_END
+#define APPCONF_ADC_VOLTAGE2_END			4.1
+#endif
+#ifndef APPCONF_ADC_USE_FILTER
+#define APPCONF_ADC_USE_FILTER				true
+#endif
+#ifndef APPCONF_ADC_SAFE_START   // off throttle regen
+#define APPCONF_ADC_SAFE_START				false
+#endif
+#ifndef APPCONF_ADC_CC_BUTTON_INVERTED
+#define APPCONF_ADC_CC_BUTTON_INVERTED		false
+#endif
+
+#ifndef APPCONF_ADC_VOLTAGE_INVERTED
+#define APPCONF_ADC_VOLTAGE_INVERTED		false
+#endif
+#ifndef APPCONF_ADC_VOLTAGE2_INVERTED
+#define APPCONF_ADC_VOLTAGE2_INVERTED		false
+#endif
+#ifndef APPCONF_ADC_THROTTLE_EXP
+#define APPCONF_ADC_THROTTLE_EXP			0.0
+#endif
+#ifndef APPCONF_ADC_THROTTLE_EXP_BRAKE
+#define APPCONF_ADC_THROTTLE_EXP_BRAKE		0.0
+#endif
+#ifndef APPCONF_ADC_THROTTLE_EXP_MODE
+#define APPCONF_ADC_THROTTLE_EXP_MODE		THR_EXP_POLY
+#endif
+#ifndef APPCONF_ADC_RAMP_TIME_POS
+#define APPCONF_ADC_RAMP_TIME_POS			0.05
+#endif
+#ifndef APPCONF_ADC_RAMP_TIME_NEG
+#define APPCONF_ADC_RAMP_TIME_NEG			0.01
+#endif
+#ifndef APPCONF_ADC_MULTI_ESC
+#define APPCONF_ADC_MULTI_ESC				true
+#endif
+#ifndef APPCONF_ADC_TC
+#define APPCONF_ADC_TC						false
+#endif
+#ifndef APPCONF_ADC_TC_MAX_DIFF
+#define APPCONF_ADC_TC_MAX_DIFF				3000.0
+#endif
+#ifndef APPCONF_ADC_UPDATE_RATE_HZ
+#define APPCONF_ADC_UPDATE_RATE_HZ			500
+#endif
+
+// UART app
+#ifndef APPCONF_UART_BAUDRATE
+#define APPCONF_UART_BAUDRATE				115200
+#endif
+
+// Nunchuk app
+#ifndef APPCONF_CHUK_HYST
+#define APPCONF_CHUK_HYST					0.15
+#endif
+
+#ifndef APPCONF_STICK_ERPM_PER_S_IN_CC
+#define APPCONF_STICK_ERPM_PER_S_IN_CC		3000.0
+#endif
+#ifndef APPCONF_CHUK_THROTTLE_EXP
+#define APPCONF_CHUK_THROTTLE_EXP			0.0
+#endif
+#ifndef APPCONF_CHUK_THROTTLE_EXP_BRAKE
+#define APPCONF_CHUK_THROTTLE_EXP_BRAKE		0.0
+#endif
+
+#ifndef APPCONF_CHUK_TC
+#define APPCONF_CHUK_TC						false
+#endif
+#ifndef APPCONF_CHUK_TC_MAX_DIFF
+#define APPCONF_CHUK_TC_MAX_DIFF			3000.0
+#endif
+#ifndef APPCONF_CHUK_USE_SMART_REV
+#define APPCONF_CHUK_USE_SMART_REV			true
+#endif
+
+// NRF app
+#ifndef APPCONF_NRF_SPEED
+#define APPCONF_NRF_SPEED					0//Display Model
+#endif
+
+#ifndef APPCONF_NRF_RETRIES
+#define APPCONF_NRF_RETRIES					3
+#endif
+#ifndef APPCONF_NRF_CHANNEL
+#define APPCONF_NRF_CHANNEL					76
+#endif
+#ifndef APPCONF_NRF_ADDR_B0
+#define APPCONF_NRF_ADDR_B0					0xC6
+#endif
+#ifndef APPCONF_NRF_ADDR_B1
+#define APPCONF_NRF_ADDR_B1					0xC7
+#endif
+#ifndef APPCONF_NRF_ADDR_B2
+#define APPCONF_NRF_ADDR_B2					0x0
+#endif
+
+// Balance app
+#ifndef APPCONF_BALANCE_KP
+#define APPCONF_BALANCE_KP							0.0
+#endif
+#ifndef APPCONF_BALANCE_KI
+#define APPCONF_BALANCE_KI							0.0
+#endif
+#ifndef APPCONF_BALANCE_KD
+#define APPCONF_BALANCE_KD							0.0
+#endif
+#ifndef APPCONF_BALANCE_HERTZ
+#define APPCONF_BALANCE_HERTZ 						1000
+#endif
+#ifndef APPCONF_BALANCE_LOOP_TIME_FILTER
+#define APPCONF_BALANCE_LOOP_TIME_FILTER 			0
+#endif
+#ifndef APPCONF_BALANCE_FAULT_PITCH
+#define APPCONF_BALANCE_FAULT_PITCH 				20
+#endif
+#ifndef APPCONF_BALANCE_FAULT_ROLL
+#define APPCONF_BALANCE_FAULT_ROLL  				45
+#endif
+#ifndef APPCONF_BALANCE_FAULT_DUTY
+#define APPCONF_BALANCE_FAULT_DUTY  				0.9
+#endif
+
+#ifndef APPCONF_BALANCE_FAULT_DELAY_PITCH
+#define APPCONF_BALANCE_FAULT_DELAY_PITCH 			0
+#endif
+#ifndef APPCONF_BALANCE_FAULT_DELAY_ROLL
+#define APPCONF_BALANCE_FAULT_DELAY_ROLL 			0
+#endif
+#ifndef APPCONF_BALANCE_FAULT_DELAY_DUTY
+#define APPCONF_BALANCE_FAULT_DELAY_DUTY 			0
+#endif
+#ifndef APPCONF_BALANCE_FAULT_DELAY_SWITCH_HALF
+#define APPCONF_BALANCE_FAULT_DELAY_SWITCH_HALF		0
+#endif
+#ifndef APPCONF_BALANCE_FAULT_DELAY_SWITCH_FULL
+#define APPCONF_BALANCE_FAULT_DELAY_SWITCH_FULL 	0
+#endif
+#ifndef APPCONF_BALANCE_FAULT_ADC_HALF_ERPM
+#define APPCONF_BALANCE_FAULT_ADC_HALF_ERPM 		1000
+#endif
+#ifndef APPCONF_BALANCE_TILTBACK_DUTY_ANGLE
+#define APPCONF_BALANCE_TILTBACK_DUTY_ANGLE 		10.0
+#endif
+#ifndef APPCONF_BALANCE_TILTBACK_DUTY_SPEED
+#define APPCONF_BALANCE_TILTBACK_DUTY_SPEED 		3.0
+#endif
+#ifndef APPCONF_BALANCE_TILTBACK_DUTY
+#define APPCONF_BALANCE_TILTBACK_DUTY  				0.75
+#endif
+#ifndef APPCONF_BALANCE_TILTBACK_HV_ANGLE
+#define APPCONF_BALANCE_TILTBACK_HV_ANGLE 			10.0
+#endif
+#ifndef APPCONF_BALANCE_TILTBACK_HV_SPEED
+#define APPCONF_BALANCE_TILTBACK_HV_SPEED 			3.0
+#endif
+#ifndef APPCONF_BALANCE_TILTBACK_HV
+#define APPCONF_BALANCE_TILTBACK_HV 				200.0
+#endif
+#ifndef APPCONF_BALANCE_TILTBACK_LV_ANGLE
+#define APPCONF_BALANCE_TILTBACK_LV_ANGLE 			10.0
+#endif
+#ifndef APPCONF_BALANCE_TILTBACK_LV_SPEED
+#define APPCONF_BALANCE_TILTBACK_LV_SPEED 			3.0
+#endif
+#ifndef APPCONF_BALANCE_TILTBACK_LV
+#define APPCONF_BALANCE_TILTBACK_LV		 			0.0
+#endif
+#ifndef APPCONF_BALANCE_TILTBACK_RETURN_SPEED
+#define APPCONF_BALANCE_TILTBACK_RETURN_SPEED		 		2.0
+#endif
+#ifndef APPCONF_BALANCE_TILTBACK_CONSTANT
+#define APPCONF_BALANCE_TILTBACK_CONSTANT 			0.0
+#endif
+#ifndef APPCONF_BALANCE_TILTBACK_CONSTANT_ERPM
+#define APPCONF_BALANCE_TILTBACK_CONSTANT_ERPM 		500
+#endif
+#ifndef APPCONF_BALANCE_TILTBACK_VARIABLE
+#define APPCONF_BALANCE_TILTBACK_VARIABLE 			0.0
+#endif
+#ifndef APPCONF_BALANCE_TILTBACK_VARIABLE_MAX
+#define APPCONF_BALANCE_TILTBACK_VARIABLE_MAX 		0.0
+#endif
+#ifndef APPCONF_BALANCE_NOSEANGLING_SPEED
+#define APPCONF_BALANCE_NOSEANGLING_SPEED 			3.0
+#endif
+#ifndef APPCONF_BALANCE_STARTUP_PITCH_TOLERANCE
+#define APPCONF_BALANCE_STARTUP_PITCH_TOLERANCE 	20.0
+#endif
+
+#ifndef APPCONF_BALANCE_DEADZONE
+#define APPCONF_BALANCE_DEADZONE 					0.0
+#endif
+
+#ifndef APPCONF_BALANCE_YAW_KP
+#define APPCONF_BALANCE_YAW_KP	 					0.0
+#endif
+#ifndef APPCONF_BALANCE_YAW_KI
+#define APPCONF_BALANCE_YAW_KI 						0.0
+#endif
+#ifndef APPCONF_BALANCE_YAW_KD
+#define APPCONF_BALANCE_YAW_KD 						0.0
+#endif
+
+#ifndef APPCONF_BALANCE_BRAKE_CURRENT
+#define APPCONF_BALANCE_BRAKE_CURRENT 				0.0
+#endif
+#ifndef APPCONF_BALANCE_BRAKE_TIMEOUT
+#define APPCONF_BALANCE_BRAKE_TIMEOUT 				10
+#endif
+
+#ifndef APPCONF_BALANCE_KD_PT1_LOWPASS_FREQUENCY
+#define APPCONF_BALANCE_KD_PT1_LOWPASS_FREQUENCY	0
+#endif
+
+#ifndef APPCONF_BALANCE_KD_BIQUAD_LOWPASS
+#define APPCONF_BALANCE_KD_BIQUAD_LOWPASS			0
+#endif
+#ifndef APPCONF_BALANCE_KD_BIQUAD_HIGHPASS
+#define APPCONF_BALANCE_KD_BIQUAD_HIGHPASS			0
+#endif
+
+#ifndef APPCONF_BALANCE_TORQUETILT_START_CURRENT
+#define APPCONF_BALANCE_TORQUETILT_START_CURRENT	10
+#endif
+
+#ifndef APPCONF_BALANCE_TURNTILT_START_ERPM
+#define APPCONF_BALANCE_TURNTILT_START_ERPM			100
+#endif
+#ifndef APPCONF_BALANCE_TURNTILT_SPEED
+#define APPCONF_BALANCE_TURNTILT_SPEED				5
+#endif
+#ifndef APPCONF_BALANCE_TURNTILT_ERPM_BOOST
+#define APPCONF_BALANCE_TURNTILT_ERPM_BOOST			20
+#endif
+#ifndef APPCONF_BALANCE_TURNTILT_ERPM_BOOST_END
+#define APPCONF_BALANCE_TURNTILT_ERPM_BOOST_END		20000
+#endif
+
+// PAS app
+
+#ifndef APPCONF_PAS_PEDAL_RPM_START
+#define APPCONF_PAS_PEDAL_RPM_START			10.0
+#endif
+#ifndef APPCONF_PAS_PEDAL_RPM_END
+#define APPCONF_PAS_PEDAL_RPM_END			180.0
+#endif
+
+#ifndef APPCONF_PAS_MAGNETS
+#define APPCONF_PAS_MAGNETS					24
+#endif
+#ifndef APPCONF_PAS_USE_FILTER
+#define APPCONF_PAS_USE_FILTER				true
+#endif
+#ifndef APPCONF_PAS_SAFE_START
+#define APPCONF_PAS_SAFE_START				true
+#endif
+#ifndef APPCONF_PAS_CURRENT_SCALING
+#define APPCONF_PAS_CURRENT_SCALING			0.1
+#endif
+
+#ifndef APPCONF_IMU_AHRS_MODE
+#define APPCONF_IMU_AHRS_MODE				AHRS_MODE_MADGWICK
+#endif
+#ifndef APPCONF_IMU_SAMPLE_RATE_HZ
+#define APPCONF_IMU_SAMPLE_RATE_HZ			200
+#endif
+
+#ifndef APPCONF_IMU_MAHONY_KI
+#define APPCONF_IMU_MAHONY_KI				0.0
+#endif
+#ifndef APPCONF_IMU_MADGWICK_BETA
+#define APPCONF_IMU_MADGWICK_BETA			0.1
+#endif
+
+#ifndef APPCONF_IMU_ROT_YAW
+#define APPCONF_IMU_ROT_YAW					0.0
+#endif
+#ifndef APPCONF_IMU_A_OFFSET_0
+#define APPCONF_IMU_A_OFFSET_0				0.0
+#endif
+#ifndef APPCONF_IMU_A_OFFSET_1
+#define APPCONF_IMU_A_OFFSET_1				0.0
+#endif
+#ifndef APPCONF_IMU_A_OFFSET_2
+#define APPCONF_IMU_A_OFFSET_2				0.0
+#endif
+#ifndef APPCONF_IMU_G_OFFSET_0
+#define APPCONF_IMU_G_OFFSET_0				0.0
+#endif
+#ifndef APPCONF_IMU_G_OFFSET_1
+#define APPCONF_IMU_G_OFFSET_1				0.0
+#endif
+#ifndef APPCONF_IMU_G_OFFSET_2
+#define APPCONF_IMU_G_OFFSET_2				0.0
+#endif
+
+#endif /* APPCONF_DEFAULT_H_ */
